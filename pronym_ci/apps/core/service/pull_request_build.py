@@ -94,7 +94,6 @@ class PullRequestBuildService:
 
     def _clone_and_refresh_pull_request(self, pull_request: PullRequest) -> Path:
         repo_path = os.path.join(settings.REPO_BASE_PATH, str(pull_request.id))
-        print(repo_path)
         remote_branch_name = f'pull/{pull_request.pr_number}/head'
         if os.path.exists(repo_path):
             repo = Repo(repo_path)
@@ -146,10 +145,10 @@ class PullRequestBuildService:
             python_executable = 'python3.8'
         # Create virtualenv.
         venv_path = os.path.join(str(repo_path), 'venv')
-        python_path = os.path.join(venv_path, 'bin', python_executable)
+        python_path = os.path.join(settings.VIRTUALENV_DIR, 'bin', python_executable)
         if not os.path.exists(venv_path):
             completed_venv_process: subprocess.CompletedProcess = subprocess.run([
-                python_executable,
+                python_path,
                 '-m',
                 'venv',
                 venv_path
