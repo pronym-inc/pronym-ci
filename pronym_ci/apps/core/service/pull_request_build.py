@@ -162,7 +162,8 @@ class PullRequestBuildService:
             'install',
             '-r',
             requirements_path,
-            '--upgrade'
+            '--upgrade',
+            '--no-cache-dir'
         ])
         if completed_process.returncode != 0:
             raise Exception("Failed to install pip requirements.")
