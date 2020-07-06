@@ -139,6 +139,8 @@ STATIC_ROOT = os.path.join(VAR_DIR, 'static')
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(VAR_DIR, 'var/media')
 
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 DEBUG_STATIC_FILES = True
