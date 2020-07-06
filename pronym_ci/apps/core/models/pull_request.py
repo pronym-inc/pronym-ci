@@ -5,7 +5,7 @@ from django.db import models
 
 class PullRequestStatus(Enum):
     PENDING = 'pending'
-    FAILED = 'failed'
+    FAILED = 'failure'
     ERROR = 'error'
     SUCCESS = 'success'
 
