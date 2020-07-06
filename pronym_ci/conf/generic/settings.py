@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'gunicorn',
+    'pronym_api',
+    'pronym_ci.apps.core'
 ]
 
 MIDDLEWARE = [
@@ -140,7 +142,8 @@ MEDIA_ROOT = os.path.join(VAR_DIR, 'var/media')
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 DEBUG_STATIC_FILES = True
-TOKEN_EXPIRATION_MINUTES = 120
+# 20 year expiration on the tokens.
+TOKEN_EXPIRATION_MINUTES = 60 * 24 * 365 * 20
 API_SECRET = secrets.get('api_secret', 'fakeapisecret123')
 
 DEFAULT_FROM_EMAIL = 'admin@changeme.com'
@@ -155,3 +158,11 @@ MANAGERS = ADMINS
 
 USE_TZ = True
 TIME_ZONE = 'America/Chicago'
+REPO_BASE_PATH = '/repo/'
+
+GITHUB_AUTH_TOKEN = secrets.get('github_auth_token', '')
+RAISE_ON_500 = False
+
+JWT_SUB = 'pronymci'
+JWT_ISS = 'pronymci'
+JWT_AUD = 'pronymciapi'
