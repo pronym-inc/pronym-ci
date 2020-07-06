@@ -160,7 +160,7 @@ MANAGERS = ADMINS
 
 USE_TZ = True
 TIME_ZONE = 'America/Chicago'
-REPO_BASE_PATH = '/repo/'
+REPO_BASE_PATH = os.path.join(VIRTUALENV_DIR, 'repo')
 
 GITHUB_AUTH_TOKEN = secrets.get('github_auth_token', '')
 RAISE_ON_500 = False
