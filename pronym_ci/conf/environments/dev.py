@@ -5,7 +5,7 @@ DEBUG = True
 DEBUG_STATIC_FILES = True
 
 
-ALLOWED_HOSTS = ['changemetothedevdomain.com']
+ALLOWED_HOSTS = ['dev-ci.pronym.com']
 
 LOGGING = {
     'version': 1,
