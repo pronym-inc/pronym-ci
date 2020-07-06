@@ -39,6 +39,7 @@ class PrRunUnitTestsAction(NoResourceAction):
 
 
 class PrRunUnitTestsApiView(NoResourceApiView):
+    require_authentication = False
 
     def _get_action_configuration(self) -> Dict[HttpMethod, BaseAction]:
         return {
